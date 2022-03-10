@@ -1,0 +1,4 @@
+ID;createdAt;createdBy;title;owner;prio;descr;miti_id;impact;bp_ID;
+ca08f36c-c08a-42e6-9293-e4243377e505;2021-10-25;SYSTEM;CFR non-compliance;Gustav Gans;3;Recent restructuring might violate CFR code 71;ca08f36c-c08a-42e6-9293-d4243377e505;10000;1000020;
+ca08f36c-c08a-42e6-9293-e4243377e506;2021-10-10;SYSTEM;Big Issue;Dagobert Duck;1;I run out of money;ca08f36c-c08a-42e6-9293-d4243377e506;25000;1000039;
+ca08f36c-c08a-42e6-9293-e4243377e507;2021-10-03;SYSTEM;Oven too hot;Donald Duck;2;I might burn the pizza;ca08f36c-c08a-42e6-9293-d4243377e507;1000;1000166;
