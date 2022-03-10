@@ -52,10 +52,10 @@ stages:
   Release:
     cloudFoundryDeploy: true
     tmsUpload: false
-#    cfTargets:
-#      - org: 'myOrg'
-#        space: 'mySpace'
-#        apiEndpoint: 'https://'
-#        appName: 'myAppName'
-#        manifest: 'manifest.yml'
-#        credentialsId: 'myDeploymentCredentialsId'
+    cfTargets:
+      - org: 'ec35f5e3trial'
+        space: 'London'
+        apiEndpoint: 'https://api.cf.us10.hana.ondemand.com'
+        appName: ''
+        manifest: 'mta.yml'
+        credentialsId: 'cfdeploy'
