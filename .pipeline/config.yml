@@ -8,11 +8,31 @@
 # This is a YAML-file. YAML is an indentation-sensitive file format. Please make sure to properly indent changes to it.
 ###
 
-
-
 ### General project setup
 general:
-  inferBuildTool: true
+  buildTool: "mta"
+service:
+  buildToolVersion: "MBTJ11N14"
+
+### Stage-specific configuration
+stages:
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: false
+  Additional Unit Tests:
+    npmExecuteScripts: false
+    karmaExecuteTests: false
+  Acceptance:
+    cloudFoundryDeploy: false
+    uiVeri5ExecuteTests: false
+  Release:
+    cloudFoundryDeploy: true
+    cfApiEndpoint: "https://api.cf.us10.hana.ondemand.com"
+    cfOrg: "ec35f5e3trial"
+    cfSpace: "London"
+    cfAppName: ""
+    cfCredentialsId: "cfdeploy"
+    tmsUpload: false
 
 ### Step-specific configuration
 steps:
@@ -20,42 +40,7 @@ steps:
     dockerImage: devxci/mbtci:1.0.14
 
   cloudFoundryDeploy:
-    cloudFoundry:
-      apiEndpoint: "https://api.cf.us10.hana.ondemand.com"
-      org: "ec35f5e3trial"
-      space: "London"
-      credentialId: "cfdeploy"
-      appname: ""
     mtaDeployParameters: "-f --version-rule ALL"
 
   artifactPrepareVersion:
-    versioningType: cloud_noTag
-
-### Stage-specific configuration
-stages:
-  'Confirm':
-    manualConfirmation: false
-
-  Build:
-    mavenExecuteStaticCodeChecks: false
-    npmExecuteLint: false
-  Additional Unit Tests:
-    npmExecuteScripts: false
-    karmaExecuteScripts: false
-  
-
-#  Integration:
-#    credentials:
-#      - alias: 'mySystemAlias'
-#        credentialId: 'mySystemCredentialsId'
-
-  Release:
-    cloudFoundryDeploy: true
-    tmsUpload: false
-    cfTargets:
-      - org: 'ec35f5e3trial'
-        space: 'London'
-        apiEndpoint: 'https://api.cf.us10.hana.ondemand.com'
-        appName: ''
-        manifest: 'mta.yml'
-        credentialsId: 'cfdeploy'
+    versioningType: "cloud_noTag"
