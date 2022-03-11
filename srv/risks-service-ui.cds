@@ -44,12 +44,15 @@ annotate RiskService.Risks with @(
 		},
 		SelectionFields: [prio, owner],
 		LineItem: [
-			{Value: title},
 			{
-                Value: miti_ID,
+                Value: title,
                 ![@HTML5.CssDefaults] : {width : '100%'}
             },
+			{
+                Value: miti_ID
+            },
             {Value: owner},
+            {Value: bp_ID},
 			{
 				Value: prio,
 				Criticality: criticality
