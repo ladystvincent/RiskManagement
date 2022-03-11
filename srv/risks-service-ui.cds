@@ -104,6 +104,11 @@ annotate RiskService.Risks with {
 }
 
 annotate RiskService.BusinessPartners with {
+    ID          @(
+        title: 'ID',
+        Common.Text: fullName
+    );
+    fullName    @title: 'Name';
     isBlocked @title : 'Business Partner Blocked';
 };
 
@@ -125,14 +130,6 @@ annotate RiskService.Risks with {
             ]
         }
     );
-}
-
-annotate RiskService.BusinessPartners with {
-    ID          @(
-        title: 'ID',
-        Common.Text: fullName
-    );
-    fullName    @title: 'Name';
 }
 
 annotate RiskService.BusinessPartners with @Capabilities.SearchRestrictions.Searchable : false;
