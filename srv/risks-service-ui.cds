@@ -22,7 +22,7 @@ annotate RiskService.Mitigations with {
 		Text: descr
 		}
 	);
-	description  @title: 'Description';
+	descr        @title: 'Description';
 	owner        @title: 'Owner';
 	timeline     @title: 'Timeline';
 	risks        @title: 'Risks';
@@ -95,7 +95,7 @@ annotate RiskService.Risks with {
 						ValueListProperty: 'ID'
 					},
 					{ $Type: 'Common.ValueListParameterDisplayOnly',
-						ValueListProperty: 'descr'
+						ValueListProperty: 'descr',
 					}
 				]
 			}
@@ -133,3 +133,35 @@ annotate RiskService.Risks with {
 }
 
 annotate RiskService.BusinessPartners with @Capabilities.SearchRestrictions.Searchable : false;
+
+annotate RiskService.Mitigations with @(
+	UI: {
+		HeaderInfo: {
+			TypeName: 'Mitigation',
+			TypeNamePlural: 'Mitigations',
+			Description : {
+				$Type: 'UI.DataField',
+				Value: descr
+			}
+		},
+		SelectionFields: [owner],
+		LineItem: [
+			{
+                Value: descr,
+                ![@HTML5.CssDefaults] : {width : '100%'}
+            },
+            {Value: owner},
+			{Value: timeline}
+		],
+		Facets: [
+			{$Type: 'UI.ReferenceFacet', Label: 'Main', Target: '@UI.FieldGroup#Main'}
+		],
+		FieldGroup#Main: {
+			Data: [
+                {Value: descr},
+                {Value: owner},
+                {Value: timeline}
+			]
+		}
+	},
+);
