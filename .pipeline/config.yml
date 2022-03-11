@@ -11,8 +11,7 @@
 ### General project setup
 general:
   buildTool: "mta"
-
-  
+ 
 service:
   buildToolVersion: "MBTJ11N14"
 
